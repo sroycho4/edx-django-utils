@@ -34,6 +34,10 @@ DATABASES = {
     },
 }
 
+DEBUG = False
+
+ALLOWED_HOSTS = ['*']
+
 INSTALLED_APPS = (
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -41,10 +45,44 @@ INSTALLED_APPS = (
     "edx_django_utils",
     "edx_django_utils.admin.tests",
     "edx_django_utils.user",
+    'django.contrib.admin',
+    'django.contrib.messages',
 )
 
 LOCALE_PATHS = [root("edx_django_utils", "conf", "locale")]
 
 ROOT_URLCONF = "edx_django_utils.urls"
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'edx_django_utils.wsgi.application'
+
+
+
 SECRET_KEY = "insecure-secret-key"
+
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
