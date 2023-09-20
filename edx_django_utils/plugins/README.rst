@@ -8,10 +8,10 @@ Django App Plugins
 Overview
 --------
 
-Provides functionality to enable improved plugin support of Django apps.
+This provides functionality to enable improved plugin support for Django apps.
 
-This can be used to extend any service with code that is not core to the service,
-but will become discoverable by that service for an individual deployment.
+It can be used to extend any service with code that is not core to the service,
+but will be discoverable by that service for an individual deployment.
 
 Once a Django project is enhanced with this functionality, any participating
 Django app (a.k.a. Plugin App) that is PIP-installed on the system is
@@ -55,8 +55,8 @@ design principles:
   extension, but closed for modification." IDAs are extensible via
   installation of Django apps. Having automatic Django App Plugin support allows
   for this extensibility without modification to an IDA. Currently, this is only
-  set up in edx platform. Going forward, we expect this capability to be widely
-  used by other IDAs to enable enhancement without need to modify core IDA code.
+  set up in the edx platform. Going forward, we expect this capability to be widely
+  used by other IDAs to enable enhancement without the need to modify core IDA code.
 
 * Dependency Inversion Principle, which says "high level modules should not
   depend upon low level modules." The high-level module here is the Django
