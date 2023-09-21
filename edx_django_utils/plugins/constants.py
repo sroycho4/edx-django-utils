@@ -33,9 +33,6 @@ class PluginURLs():
     """
 
     CONFIG = "url_config"
-    APP_NAME = "app_name"
-    NAMESPACE = "namespace"
-    REGEX = "regex"
     RELATIVE_PATH = "relative_path"
     DEFAULT_RELATIVE_PATH = "urls"
 

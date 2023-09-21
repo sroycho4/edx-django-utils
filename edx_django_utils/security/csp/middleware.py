@@ -9,6 +9,10 @@ configured by Django settings.
 This middleware only supports static values for the headers. That is, it does not
 support the ``strict-dynamic`` directive, which requires coordination of nonces or
 hashes between the response header and response body.
+
+Additionally, this middleware can be extended to support other security headers 
+as per the application's requirements. For example, it can be modified to include 
+headers like `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection`, etc.
 """
 import re
 
@@ -83,6 +87,8 @@ def _load_headers() -> dict:
 
     if report_policies:
         headers['Content-Security-Policy-Report-Only'] = clean_header(report_policies) + reporting_suffix
+
+    # Add other security headers here as per the application's requirements
 
     return headers
 

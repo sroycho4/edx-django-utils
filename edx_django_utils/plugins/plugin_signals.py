@@ -79,7 +79,4 @@ def _get_sender(receiver_config):
 
 
 def _get_dispatch_uuid(receiver_config, receiver_func):
-    dispatch_uid = receiver_config.get(constants.PluginSignals.DISPATCH_UID)
-    if dispatch_uid is None:
-        dispatch_uid = f"{receiver_func.__module__}.{receiver_func.__name__}"
-    return dispatch_uid
+    return receiver_config.get(constants.PluginSignals.DISPATCH_UID) or f"{receiver_func.__module__}.{receiver_func.__name__}"
